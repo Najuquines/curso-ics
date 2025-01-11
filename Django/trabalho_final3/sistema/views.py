@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from cadastro.models import Cadastr
+from aulas.models import Curso
 
 def home(request):
     return render(request, 'home.html')
@@ -21,7 +23,7 @@ def ven(request):
 def enviar(request):
     return render(request, 'enviar.html')
 
-def Cadastr(request):
+def tela_cadastro(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
         idade = request.POST.get('idade')
@@ -30,12 +32,22 @@ def Cadastr(request):
         estado = request.POST.get('estado')
         email = request.POST.get('e-mail')
         CPF = request.POST.get('CPF')
-        cadastro = Cadastr(nome=nome, email=email, idade=idade, cidade=cidade, telefone=telefone, estado=estado, CPF=CPF)
+        cadastro = Cadastr(
+            nome=nome, 
+            email=email, 
+            idade=idade, 
+            cidade=cidade, 
+            telefone=telefone, 
+            estado=estado, 
+            cpf=CPF)
         cadastro.save()
+
+        cursos = Curso.objects.all()
         dados = {
-            'mensagem': 'Seu cadastro foi execultado com sucesso!'
+            'mensagem': 'Seu cadastro foi execultado com sucesso!',
+            'cursos': cursos
         }
 
-        return render(request, 'cadastro.html', dados)
+        return render(request, 'cadastro_confirmacao.html', dados)
     else:
         return render(request, 'cadastro.html')

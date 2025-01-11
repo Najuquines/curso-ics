@@ -32,53 +32,30 @@
           </div>
         </div>
       </nav>
-    <h1>Cadastro</h1>
-  <form action="{% url 'cadastro' %}" method="POST">
-    {% csrf_token %}
-    <label for="">Nome</label>
-    <input type="text" name="nome">
+    <h1>Cadastro Completo com sucesso</h1>
 
-    <br>
-    <br>
-    <label for="">Idade</label>
-    <input type="text" name="idade">
+    {% for curso in cursos %}
 
-    <br>
-    <br>
-    <label for="">Cidade</label>
-    <input type="text" name="cidade">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <img src="{{curso.imagem}}" class="card-img-top" alt="Administração">
+                    <div class="card-body">
+                        <p class="card-title">
 
-    <br>
-    <br>
-    <label for="">Telefone</label>
-    <input type="text" name="telefone">
+                        {{curso.descricao}}
+                       </p>
+                    </div>
+                </div>
 
-    <br>
-    <br>
-    <label for="">Estado</label>
-    <input type="text" name="estado">
+                <a href="">Acessar</a>
+            </div>
+    
+        </div>
+    </div>
 
-    <br>
-    <br>
-    <label for="">E-mail</label>
-    <input type="text" name="e-mail">
-
-    <br>
-    <br>
-    <label for="">curso</label>
-    <input type="text" name="curso">
-
-    <br>
-    <br>
-    <label for="">CPF</label>
-    <input type="text" name="CPF">
-
-
-   
-    <button type="submit" class="btn btn-primary">Enviar</button>
-
-  </form>
-
+    {% endfor %}
 
   
 
