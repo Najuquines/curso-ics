@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{titulo}}</h1>
+    {{descricao}}
+    <p>escreva seu nome</p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="nome">
+        <button type="submit">Enviar</button>
+    </form>
+    {% if frase %}
+        <h2>{{frase}}</h2>
+    {% endif %}
+    <br><a href="{% url 'home' %}">Lista de exercicios</a></br>
+</body>
+</html>

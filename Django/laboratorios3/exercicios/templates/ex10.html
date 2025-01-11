@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{titulo}}</h1>
+ {{descricao}}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="number" name="valor">
+        <input type="number" name="valor2">
+        <button type="submit">Enviar</button>
+    </form>
+    
+    {% if soma %}
+        <h2>O valor da soma é: {{soma}}</h2>
+    {% endif %}
+    <br><a href="{% url 'home' %}">Lista de exercicios</a></br>
+</body>
+</html>

@@ -1,0 +1,6 @@
+*.pyc
+venv
+pr_venv
+pr2_venv
+client1
+*.sqlite3

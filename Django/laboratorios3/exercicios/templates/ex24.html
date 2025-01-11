@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{titulo}}</h1>
+    {{descricao}}
+
+    <form method="POST">
+        {% csrf_token %}
+        <br>
+        <input type="number" name="a">
+        <br>
+        <br>
+        <input type="number" name="b">
+        <br>
+        <button type="submit">Enviar</button>
+        
+    </form>
+
+    {% if troca %}
+    <h2>a troca de valores é:{{troca}}</h2>
+{% endif %}
+<br><a href="{% url 'home' %}">Lista de exercicios</a></br>
+</body>
+</html>
+</body>
+</html>
