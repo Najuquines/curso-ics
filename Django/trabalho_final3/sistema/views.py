@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from cadastro.models import Cadastr
+from cadastro.models import Cadastro
 from aulas.models import Curso
 
 def home(request):
@@ -25,21 +25,19 @@ def enviar(request):
 
 def tela_cadastro(request):
     if request.method == 'POST':
-        nome = request.POST.get('nome')
-        idade = request.POST.get('idade')
-        cidade = request.POST.get('cidade')
-        telefone= request.POST.get('telefone')
-        estado = request.POST.get('estado')
-        email = request.POST.get('e-mail')
-        CPF = request.POST.get('CPF')
-        cadastro = Cadastr(
-            nome=nome, 
-            email=email, 
-            idade=idade, 
-            cidade=cidade, 
-            telefone=telefone, 
-            estado=estado, 
-            cpf=CPF)
+        _primeiro_e_ultimo_nome = request.POST.get('primeiro_e_ultimo_nome')
+        _idade = request.POST.get('idade')
+        _cidade_e_estado = request.POST.get('cidade_e_estado')
+        _telefone= request.POST.get('telefone')
+        _email = request.POST.get('e-mail')
+        _cpf = request.POST.get('cpf')
+        cadastro = Cadastro(
+            primeiro_e_ultimo_nome=_primeiro_e_ultimo_nome, 
+            email=_email, 
+            idade=_idade, 
+            cidade_e_estado=_cidade_e_estado, 
+            telefone=_telefone, 
+            cpf=_cpf)
         cadastro.save()
 
         cursos = Curso.objects.all()

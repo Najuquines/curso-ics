@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cadastr
+from .models import Cadastro
 
 
-admin.site.register(Cadastr)
+admin.site.register(Cadastro)
