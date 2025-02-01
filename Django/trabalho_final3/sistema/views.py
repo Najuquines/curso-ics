@@ -9,7 +9,8 @@ def aulas(request):
     return render(request, 'aulas.html')
 
 def cursos(request):
-    return render(request, 'cursos.html')
+    cursos = Curso.objects.all()
+    return render(request, 'cursos.html', {'cursos': cursos})
 
 def adm(request):
     return render(request, 'adm.html')
@@ -29,7 +30,7 @@ def tela_cadastro(request):
         _idade = request.POST.get('idade')
         _cidade_e_estado = request.POST.get('cidade_e_estado')
         _telefone= request.POST.get('telefone')
-        _email = request.POST.get('e-mail')
+        _email = request.POST.get('email')
         _cpf = request.POST.get('cpf')
         cadastro = Cadastro(
             primeiro_e_ultimo_nome=_primeiro_e_ultimo_nome, 
@@ -40,12 +41,15 @@ def tela_cadastro(request):
             cpf=_cpf)
         cadastro.save()
 
-        cursos = Curso.objects.all()
         dados = {
-            'mensagem': 'Seu cadastro foi execultado com sucesso!',
-            'cursos': cursos
+            'mensagem': 'Seu cadastro foi execultado com sucesso!'
         }
 
         return render(request, 'cadastro_confirmacao.html', dados)
     else:
         return render(request, 'cadastro.html')
+    
+
+def detalhes_cursos(request):
+    cursos = Curso.objects.all()
+    return render(request, 'detalhes-curso.html', {'cursos': cursos})

@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                      <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/cursos">Cursos</a>
@@ -49,34 +49,22 @@
             </nav>
             <div class="container mt-5">
               <div class="row">
+                {% for curso in cursos %}
+
                   <div class="col-12 col-md-4">
-                      <div class="card">
-                          <img src="https://th.bing.com/th/id/R.67713f578110061f1e048256166ec307?rik=qjKfs3O%2fATqo%2fA&riu=http%3a%2f%2f2.bp.blogspot.com%2f_Fw7Izl2Ewgw%2fTPxgoZN6b8I%2fAAAAAAAAAAc%2fncXSdYxfG_4%2fS1600-R%2fadministracao.jpg&ehk=vyn6xWiR5R%2bmS7AodrLnpYyKoq2V668AqeiHFSIxovg%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="Administração">
-                          <div class="card-body">
-                              <p class="card-title">
-                              O curso de <strong>Administração</strong> do Mestre-Digital oferece uma formação prática e estratégica em gestão empresarial, cobrindo tópicos como finanças, marketing e recursos humanos. Com metodologia 100% online, os alunos estudam no seu próprio ritmo, utilizando materiais interativos e estudos de caso. Ao final, estarão preparados para se destacar no mercado de trabalho em diversas áreas administrativas.
-                             </p>
-                          </div>
-                      </div>
+                    <div class="card">
+                        <img src="{{ curso.imagem }}" class="card-img-top" alt="Administração">
+                        <h2>{{curso.nome}}</h2>
+                        <div class="card-body">
+                            <p class="card-title">
+                            {{curso.descricao}}
+                          </p>
+                        </div>
+                    </div>
                   </div>
-      
-                  <div class="col-12 col-md-4">
-                      <div class="card">
-                          <img src="https://watermark.lovepik.com/photo/50036/0163.jpg_wh1200.jpg" class="card-img-top" alt="Informática">
-                          <div class="card-body">
-                              <p class="card-title">O curso de <strong>Informática</strong> do Mestre-Digital oferece uma base sólida em tecnologia, ensinando desde o uso básico de programas até conceitos avançados em segurança digital e redes. Com metodologia 100% online, os alunos podem estudar no seu próprio ritmo, utilizando aulas interativas, tutoriais e exercícios práticos. Ao final, estarão preparados para utilizar a informática de forma eficiente no dia a dia e no ambiente de trabalho.</p>
-                          </div>
-                      </div>
-                  </div>
-      
-                  <div class="col-12 col-md-4">
-                      <div class="card">
-                          <img src="https://www.smbstore.com.br/wp-content/uploads/2022/09/fatores-de-sucesso-em-vendas-1.jpg" class="card-img-top" alt="Vendas">
-                          <div class="card-body">
-                              <p class="card-title">O curso de <strong>Vendas</strong> do Mestre-Digital capacita os alunos a se tornarem profissionais eficientes, dominando técnicas de vendas, negociação e gestão de relacionamento com o cliente. Com metodologia 100% online, o curso oferece aulas práticas, estudos de caso e simulações, permitindo aos alunos estudar no seu próprio ritmo. Ao final, estarão preparados para se destacar no competitivo mercado de vendas.</p>
-                          </div>
-                      </div>
-                  </div>
+
+                {% endfor %}
+
               </div>
           </div>
     </main>
