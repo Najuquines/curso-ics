@@ -14,7 +14,7 @@ class Curso(models.Model):
     descricao = models.TextField(max_length=1000)
     aulas = models.ManyToManyField(Aulas)
     imagem = models.CharField(max_length=1000)
-    material_escrito = models.TextField(max_length=100, null=True, blank=True)
+    material_escrito = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__ (self):
         return self.nome
