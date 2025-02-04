@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <style>
+    body{
+      main{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: center;
+      }
+      h1{
+        color: #07357a;
+      }
+    }
+  </style>
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -8,57 +23,53 @@
 </head>
 <body class="container">
 
-  <body class="container">
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/home">Mestre-digital</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/cursos">Cursos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-disabled="true" href="/cadastro">Cadastro</a>
-              </li>
-            </ul>
-            
-          </div>
-        </div>
-      </nav>
-    <h1>Acesso os cursos</h1>
-
-
-
-    {% for curso in cursos %}
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <div class="card">
-                    <img src="{{curso.imagem}}" class="card-img-top" alt="Administração">
-                    <div class="card-body">
-                        <p class="card-title">
-
-                        {{curso.descricao}}
-                       </p>
-                    </div>
-                </div>
-
-                <a href="">Acessar</a>
-            </div>
+  <main>
+    <body class="container">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/home">Mestre-digital</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/cursos">Cursos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-disabled="true" href="/cadastro">Cadastro</a>
+                </li>
+              </ul>
     
-        </div>
-    </div>
-
-    {% endfor %}
-
+            </div>
+          </div>
+        </nav>
+      <h1>Acesse os cursos abaixo</h1>
+      {% for curso in cursos %}
+      <div class="container mt-5">
+          <div class="row">
+              <div class="col-12 col-md-4">
+                  <div class="card">
+                      <img src="{{curso.imagem}}" class="card-img-top" alt="Administração">
+                      <div class="card-body">
+                          <p class="card-title">
+                          {{curso.descricao}}
+                         </p>
+                      </div>
+                  </div>
+                  <a href="">Acessar</a>
+              </div>
+    
+          </div>
+      </div>
+    
+      {% endfor %}
+    
+      </a>
+  </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

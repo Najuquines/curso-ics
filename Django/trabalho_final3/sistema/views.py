@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from cadastro.models import Cadastro
 from aulas.models import Curso
+from aulas.models import Aulas
 
 def home(request):
     return render(request, 'home.html')
@@ -11,9 +12,6 @@ def aulas(request):
 def cursos(request):
     cursos = Curso.objects.all()
     return render(request, 'cursos.html', {'cursos': cursos})
-
-def adm(request):
-    return render(request, 'adm.html')
 
 def infor(request):
     return render(request, 'infor.html')
@@ -51,5 +49,22 @@ def tela_cadastro(request):
     
 
 def detalhes_cursos(request):
-    cursos = Curso.objects.all()
-    return render(request, 'detalhes-curso.html', {'cursos': cursos})
+  cursos = Curso.objects.all()
+  return render(request, 'detalhes-curso.html', {'cursos': cursos})
+
+def administracao(request):
+    if request.method == 'POST':
+     _titulo = request.POST.get('titulo')
+     _descricao = request.POST.get('descricao')
+     _link = request.POST.get('link')
+     
+     administracao = Aulas(
+         nome =_titulo,
+         descricao = _descricao,
+         link = _link
+       
+     )
+     administracao.save()
+     administracao = Aulas.objects.all()
+    return render(request, 'administracao.html',{'administracao': administracao} )
+  
