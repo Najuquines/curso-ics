@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import render
 from cadastro.models import Cadastro
 from aulas.models import Curso
@@ -51,6 +52,10 @@ def tela_cadastro(request):
 def detalhes_cursos(request):
   cursos = Curso.objects.all()
   return render(request, 'detalhes-curso.html', {'cursos': cursos})
+
+def curso_detalhe(request, curso_id):
+    curso = Curso.objects.get(id=curso_id)
+    return render(request, 'curso-detalhe.html', {'curso': curso})
 
 def administracao(request):
     if request.method == 'POST':
