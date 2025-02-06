@@ -17,14 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home, aulas, cursos, administracao, infor, ven, tela_cadastro, enviar, detalhes_cursos
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     path('aulas/', aulas),
     path('cursos/', cursos),
-    path('detalhes_cursos/', detalhes_cursos, name='detalhes_cursos'),
-    path('administracao/', administracao, name='administracao'),
+    path("detalhes_cursos/<int:curso_id>/", views.curso_detalhe, name="curso_detalhe"),
+    path('administracao/', administracao, name='administração'),
     path('infor/', infor),
     path('ven/', ven),
     path('enviar/', enviar),
